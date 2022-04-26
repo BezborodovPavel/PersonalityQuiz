@@ -20,8 +20,7 @@ class ResultViewController: UIViewController {
         navigationItem.hidesBackButton = true
         
         guard let favoriteAnimal = selectFavorite() else {return}
-        titleLabel.text = "Вы - \(favoriteAnimal.rawValue)"
-        discriptLabel.text = favoriteAnimal.definition
+        updateUI(set: favoriteAnimal.rawValue, and: favoriteAnimal.definition)
     }
     
     private func selectFavorite() -> Animal?{
@@ -30,5 +29,10 @@ class ResultViewController: UIViewController {
         }
         let favoriteAnimal = counts.max{a, b in a.value < b.value}?.key
         return favoriteAnimal
+    }
+    
+    private func updateUI(set title: Character, and descrition: String) {
+        titleLabel.text = "Вы - \(title)"
+        discriptLabel.text = descrition
     }
 }
