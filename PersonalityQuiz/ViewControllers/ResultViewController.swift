@@ -17,7 +17,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.hidesBackButton = true
+        navigationItem.hidesBackButton = true
         
         guard let favoriteAnimal = selectFavorite() else {return}
         titleLabel.text = "Вы - \(favoriteAnimal.rawValue)"
